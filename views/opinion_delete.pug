@@ -1,0 +1,22 @@
+extends layout
+
+block content
+  h1 #{title}: #{opinion._id}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h5 Do you really want to delete this Opinion?
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    p #[strong Book: ]
+      a(href=opinion.book.url) #{opinion.book.title}
+    p #[strong Reader: ]
+      a(href=opinion.reader.url) #{opinion.reader.surname}
+    p #[strong comments:] #[em  #{opinion.comments}]
+
+    form(method='POST' action='')
+      div.form-group
+        input#opinionid.form-control(type='hidden',name='opinionid', required='true', value=opinion._id )
+
+      button.btn.btn-primary(type='submit') Delete

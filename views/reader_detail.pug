@@ -1,0 +1,29 @@
+extends layout
+
+block content
+
+  h1 Reader: #{reader.surname}
+  p Number: #{reader.number}
+
+  div(style='margin-left:20px;margin-top:20px')
+
+    h5 Opinions
+
+    dl
+      each opinion in reader_opinions
+        dt
+          a(href=opinion.book.url) #{opinion.book.title}
+        div(style='margin-left:10px;margin-top:10px')
+        dd #[em #{opinion.comments}] 
+        dd
+         a(href=opinion.url) opinion details
+        div(style='margin-left:20px;margin-top:20px')
+
+      else
+        p This reader has no opinions.
+  
+  hr
+  p
+    a(href=reader.url+'/delete') Delete reader
+  p
+    a(href=reader.url+'/update') Update reader

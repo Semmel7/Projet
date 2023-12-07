@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  h1 Opinion details
+
+  p #[strong Book: ]
+    a(href=opinion.book.url) #{opinion.book.title}
+  p #[strong Reader: ]
+    a(href=opinion.reader.url) #{opinion.reader.surname}
+  p #[strong comments:] #[em  #{opinion.comments}]
+
+  hr
+  p
+    a(href=opinion.url+'/delete') Delete opinion
+  p
+    a(href=opinion.url+'/update') Change opinion
+  
